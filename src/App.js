@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "./index.css";
+
+const SearchBar = React.lazy(() => import("./Components/SearchBar"));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <React.Suspense fallback="loading...">
+        <header className="App-header">
+          <h2> Google Places Autocomplete</h2>
+          <SearchBar />
+        </header>
+      </React.Suspense>
     </div>
   );
 }
